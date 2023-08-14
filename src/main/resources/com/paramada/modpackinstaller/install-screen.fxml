@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.paramada.modpackinstaller.InstallerScreenController">
+    <bottom>
+        <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="20.0" nodeOrientation="LEFT_TO_RIGHT"
+                  prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #FAFAFA;"
+                  BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" text="Cancel" onAction="#closeWindow"/>
+                <Button mnemonicParsing="false" text="Next" onAction="#nextScreen" disable="true"
+                        fx:id="nextButton"/>
+            </children>
+            <padding>
+                <Insets right="10.0"/>
+            </padding>
+        </FlowPane>
+    </bottom>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <bottom>
+                <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="scroller">
+                    <content>
+                        <FlowPane prefHeight="200.0" prefWidth="364.0" orientation="VERTICAL">
+                            <Label fx:id="LOGGER" alignment="TOP_LEFT" prefWidth="364.0"/>
+                        </FlowPane>
+                    </content>
+                </ScrollPane>
+            </bottom>
+            <center>
+                <ProgressBar prefHeight="38.0" prefWidth="381.0" progress="0.0" BorderPane.alignment="CENTER"
+                             fx:id="progressBar"/>
+            </center>
+            <opaqueInsets>
+                <Insets left="10.0"/>
+            </opaqueInsets>
+            <padding>
+                <Insets left="10.0" right="10.0"/>
+            </padding>
+            <top>
+                <Label alignment="CENTER" prefHeight="78.0" prefWidth="631.0" textAlignment="CENTER"
+                       BorderPane.alignment="CENTER" fx:id="MODPACK_NAME">
+                    <font>
+                        <Font name="Serif Bold" size="40.0"/>
+                    </font>
+                </Label>
+            </top>
+        </BorderPane>
+    </center>
+    <left>
+        <ImageView fitHeight="347.0" fitWidth="200.0" pickOnBounds="true" BorderPane.alignment="CENTER">
+            <image>
+                <Image url="@placeholder.png"/>
+            </image>
+            <viewport>
+                <Rectangle2D/>
+            </viewport>
+        </ImageView>
+    </left>
+</BorderPane>

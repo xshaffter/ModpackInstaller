@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.paramada.modpackinstaller.FinalizationController">
+    <bottom>
+        <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="20.0" nodeOrientation="LEFT_TO_RIGHT"
+                  prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #FAFAFA;"
+                  BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" text="Close" onAction="#closeWindow"/>
+            </children>
+            <padding>
+                <Insets right="10.0"/>
+            </padding>
+        </FlowPane>
+    </bottom>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <center>
+                <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="59.0" prefWidth="400.0"
+                          BorderPane.alignment="CENTER">
+                    <children>
+                        <Label text="Installation finished...."/>
+                        <Label text="you can now close this windows"/>
+                    </children>
+                </FlowPane>
+            </center>
+            <opaqueInsets>
+                <Insets left="10.0"/>
+            </opaqueInsets>
+            <padding>
+                <Insets left="10.0" right="10.0"/>
+            </padding>
+            <top>
+                <Label alignment="CENTER" prefHeight="78.0" prefWidth="631.0" text="Modpack Installer"
+                       textAlignment="CENTER" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Serif Bold" size="40.0"/>
+                    </font>
+                </Label>
+            </top>
+        </BorderPane>
+    </center>
+    <left>
+        <ImageView fitHeight="347.0" fitWidth="200.0" pickOnBounds="true" BorderPane.alignment="CENTER">
+            <image>
+                <Image url="@placeholder.png"/>
+            </image>
+        </ImageView>
+    </left>
+</BorderPane>
