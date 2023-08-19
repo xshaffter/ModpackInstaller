@@ -4,10 +4,13 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
@@ -26,6 +29,11 @@ public class MainScreenController {
     public FlowPane modsList;
     @FXML
     public ChoiceBox<String> modpackSelector;
+    @FXML
+    public ImageView placeholderImage;
+    @FXML
+    public Rectangle2D placeholderViewPort;
+
 
     @FXML
     public void initialize() {
@@ -33,7 +41,6 @@ public class MainScreenController {
         List<String> modpacks = Stream.of(modpacksStr.split(",")).map(String::trim).toList();
 
         modpackSelector.getItems().setAll(modpacks);
-
         modpackSelector.getSelectionModel().selectedItemProperty().addListener((item) -> {
             HttpClient httpClient = HttpClient.newHttpClient();
             String modPack = ((ReadOnlyObjectProperty<?>) item).getValue().toString();
@@ -65,6 +72,10 @@ public class MainScreenController {
                 throw new RuntimeException(e);
             }
         });
+
+        placeholderImage.setPreserveRatio(true);
+        placeholderImage.setViewport(placeholderViewPort);
+
     }
 
     public void closeWindow(ActionEvent actionEvent) {
@@ -76,9 +87,14 @@ public class MainScreenController {
         Stage window = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(InstallerMainApp.class.getResource("install-screen.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+
+        scene.getStylesheets().addAll(window.getScene().getStylesheets());
         window.setScene(scene);
     }
 
-    public void onSelect(ActionEvent actionEvent) {
+    public void minimizeWindow(ActionEvent actionEvent) {
+        Stage window = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        window.setIconified(true);
     }
+
 }

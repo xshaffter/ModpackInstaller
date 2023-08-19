@@ -1,69 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-
+<?import com.paramada.modpackinstaller.Toolbar?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            blendMode="DARKEN" style="-fx-base:#ecebeb"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.paramada.modpackinstaller.InstallerScreenController">
     <bottom>
         <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="20.0" nodeOrientation="LEFT_TO_RIGHT"
-                  prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #FAFAFA;"
+                  prefHeight="35.0" prefWidth="600.0"
                   BorderPane.alignment="CENTER">
-            <children>
-                <Button mnemonicParsing="false" text="Cancel" onAction="#closeWindow"/>
-                <Button mnemonicParsing="false" text="Next" onAction="#nextScreen" disable="true"
-                        fx:id="nextButton"/>
-            </children>
             <padding>
-                <Insets right="10.0"/>
+                <Insets right="10.0" bottom="10.0"/>
             </padding>
+            <Button mnemonicParsing="false" onAction="#closeWindow" text="Cancel"
+                    style="-fx-background-color:#f2abc7"/>
+            <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#nextScreen" text="Next"
+                    style="-fx-background-color:#f2abc7"/>
         </FlowPane>
     </bottom>
     <center>
-        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <bottom>
-                <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="scroller">
-                    <content>
-                        <FlowPane prefHeight="200.0" prefWidth="364.0" orientation="VERTICAL">
-                            <Label fx:id="LOGGER" alignment="TOP_LEFT" prefWidth="364.0"/>
-                        </FlowPane>
-                    </content>
-                </ScrollPane>
-            </bottom>
-            <center>
-                <ProgressBar prefHeight="38.0" prefWidth="381.0" progress="0.0" BorderPane.alignment="CENTER"
-                             fx:id="progressBar"/>
-            </center>
-            <opaqueInsets>
-                <Insets left="10.0"/>
-            </opaqueInsets>
-            <padding>
-                <Insets left="10.0" right="10.0"/>
-            </padding>
-            <top>
-                <Label alignment="CENTER" prefHeight="78.0" prefWidth="631.0" textAlignment="CENTER"
-                       BorderPane.alignment="CENTER" fx:id="MODPACK_NAME">
-                    <font>
-                        <Font name="Serif Bold" size="40.0"/>
-                    </font>
-                </Label>
-            </top>
-        </BorderPane>
+        <FlowPane orientation="VERTICAL" prefWidth="600">
+            <ImageView fitHeight="265.0" fitWidth="600" pickOnBounds="true" BorderPane.alignment="CENTER" fx:id="placeholderImage">
+                <Image url="@mary_mods.jpg"/>
+            </ImageView>
+            <FlowPane orientation="VERTICAL" alignment="CENTER_LEFT" BorderPane.alignment="CENTER" prefHeight="75.0"
+                      prefWidth="600">
+                <FlowPane alignment="BOTTOM_LEFT" prefWidth="600">
+                    <Label fx:id="LOGGER"/>
+                </FlowPane>
+                <ProgressBar fx:id="progressBar" progress="0.0" prefHeight="25.0" prefWidth="600" style="-fx-accent:#5fd45f"
+                             BorderPane.alignment="CENTER"/>
+            </FlowPane>
+        </FlowPane>
     </center>
-    <left>
-        <ImageView fitHeight="347.0" fitWidth="200.0" pickOnBounds="true" BorderPane.alignment="CENTER">
-            <image>
-                <Image url="@placeholder.png"/>
-            </image>
-            <viewport>
-                <Rectangle2D/>
-            </viewport>
-        </ImageView>
-    </left>
+    <top>
+        <Toolbar />
+    </top>
 </BorderPane>

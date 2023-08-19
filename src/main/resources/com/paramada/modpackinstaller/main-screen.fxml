@@ -7,61 +7,58 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.paramada.modpackinstaller.MainScreenController">
+<?import com.paramada.modpackinstaller.Toolbar?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-base:#ecebeb" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.paramada.modpackinstaller.MainScreenController">
     <bottom>
         <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="20.0" nodeOrientation="LEFT_TO_RIGHT"
-                  prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #FAFAFA;"
-                  BorderPane.alignment="CENTER">
-            <children>
-                <Button mnemonicParsing="false" text="Cancel" onAction="#closeWindow"/>
-                <Button mnemonicParsing="false" text="Install" onAction="#nextScreen"/>
-            </children>
+                  prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <padding>
                 <Insets right="10.0"/>
             </padding>
+            <Button mnemonicParsing="false" onAction="#closeWindow" style="-fx-background-color:#f2abc7" text="Cancel"/>
+            <Button mnemonicParsing="false" onAction="#nextScreen" style="-fx-background-color:#f2abc7" text="Install"/>
         </FlowPane>
     </bottom>
     <center>
         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <bottom>
                 <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <content>
-                        <FlowPane minHeight="200.0" prefWidth="364.0" fx:id="modsList" orientation="VERTICAL"/>
-                    </content>
+                    <FlowPane fx:id="modsList" minHeight="198.0" orientation="VERTICAL" prefHeight="198.0"
+                              prefWidth="414.0" style="-fx-background-color:#ecebeb"/>
                 </ScrollPane>
             </bottom>
             <center>
                 <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="59.0" prefWidth="400.0"
                           BorderPane.alignment="CENTER">
-                    <children>
-                        <Label text="Modpack"/>
-                        <ChoiceBox prefWidth="150.0" fx:id="modpackSelector"/>
-                    </children>
+                    <Label text="Modpack"/>
+                    <ChoiceBox fx:id="modpackSelector" prefWidth="150.0"/>
                 </FlowPane>
             </center>
             <top>
-                <Label alignment="CENTER" prefHeight="78.0" prefWidth="631.0" text="Modpack Installer"
-                       textAlignment="CENTER" BorderPane.alignment="CENTER">
+                <Label alignment="CENTER" prefHeight="78.0" prefWidth="631.0" text="Modpack Installer" textAlignment="CENTER" BorderPane.alignment="CENTER">
                     <font>
-                        <Font name="Serif Bold" size="40.0"/>
+                        <Font name="Serif Bold" size="40.0" />
                     </font>
                 </Label>
             </top>
             <opaqueInsets>
-                <Insets left="10.0"/>
+                <Insets left="10.0" />
             </opaqueInsets>
             <padding>
-                <Insets left="10.0" right="10.0"/>
+                <Insets left="10.0" right="10.0" />
             </padding>
         </BorderPane>
     </center>
     <left>
-        <ImageView fitHeight="347.0" fitWidth="200.0" pickOnBounds="true" BorderPane.alignment="CENTER">
-            <image>
-                <Image url="@placeholder.png"/>
-            </image>
+        <ImageView fx:id="placeholderImage" fitHeight="319.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true"
+                   BorderPane.alignment="CENTER">
+            <viewport>
+                <Rectangle2D fx:id="placeholderViewPort" height="1080" minX="1193" width="512.0"/>
+            </viewport>
+            <Image url="@mary_mods.jpg"/>
         </ImageView>
     </left>
+   <top>
+       <Toolbar />
+   </top>
 </BorderPane>

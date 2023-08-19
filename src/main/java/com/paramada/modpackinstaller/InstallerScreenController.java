@@ -5,11 +5,13 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,11 +37,10 @@ public class InstallerScreenController {
     public ProgressBar progressBar;
     @FXML
     public Button nextButton;
-    @FXML
-    public ScrollPane scroller;
-
     private final String dotMinecraft;
     private final String modsFolder;
+    @FXML
+    public ImageView placeholderImage;
 
     public InstallerScreenController() {
         final String appdataFolder = System.getenv("appdata");
@@ -50,8 +51,7 @@ public class InstallerScreenController {
 
     private void log(final String text) {
         Platform.runLater(() -> {
-            LOGGER.setText("%s%s\n".formatted(LOGGER.getText(), text));
-            scroller.setVvalue(1.0);
+            LOGGER.setText("%s".formatted(text));
         });
     }
 
@@ -174,9 +174,13 @@ public class InstallerScreenController {
 
     @FXML
     public void initialize() {
-        MODPACK_NAME.setText("%s Installation".formatted(Globals.modpackName));
-        progressBar.progressProperty().bind(installation.progressProperty());
-        new Thread(installation, "Installation-fx").start();
+        Platform.runLater(() -> {
+            progressBar.prefWidthProperty().bind(progressBar.getScene().widthProperty());
+            placeholderImage.fitWidthProperty().bind(placeholderImage.getScene().widthProperty());
+
+            progressBar.progressProperty().bind(installation.progressProperty());
+            new Thread(installation, "Installation-fx").start();
+        });
     }
 
     public void closeWindow(ActionEvent actionEvent) {
@@ -188,7 +192,12 @@ public class InstallerScreenController {
         Stage window = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(InstallerMainApp.class.getResource("finalization-screen.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().addAll(window.getScene().getStylesheets());
         window.setScene(scene);
     }
 
+    public void minimizeWindow(ActionEvent actionEvent) {
+        Stage window = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        window.setIconified(true);
+    }
 }
