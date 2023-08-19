@@ -33,7 +33,7 @@ public class InstallerMainApp extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("Modpack Installer");
-        stage.setAlwaysOnTop(true);
+        stage.setIconified(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(InstallerMainApp.class.getResourceAsStream("icon.png"))));
         stage.setScene(scene);
         stage.show();

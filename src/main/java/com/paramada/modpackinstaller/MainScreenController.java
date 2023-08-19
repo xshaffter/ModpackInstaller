@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
@@ -33,6 +32,7 @@ public class MainScreenController {
     public ImageView placeholderImage;
     @FXML
     public Rectangle2D placeholderViewPort;
+    public Button nextBtn;
 
 
     @FXML
@@ -72,6 +72,8 @@ public class MainScreenController {
                 throw new RuntimeException(e);
             }
         });
+
+        nextBtn.setDisable(false);
 
         placeholderImage.setPreserveRatio(true);
         placeholderImage.setViewport(placeholderViewPort);

@@ -10,6 +10,24 @@
             blendMode="DARKEN" style="-fx-base:#ecebeb"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.paramada.modpackinstaller.InstallerScreenController">
+    <top>
+        <Toolbar />
+    </top>
+    <center>
+        <FlowPane orientation="VERTICAL" prefWidth="600">
+            <ImageView fitHeight="260.0" fitWidth="600" pickOnBounds="true" BorderPane.alignment="CENTER" fx:id="placeholderImage">
+                <Image url="@mary_mods.jpg"/>
+            </ImageView>
+            <FlowPane orientation="VERTICAL" alignment="CENTER_LEFT" BorderPane.alignment="CENTER" prefHeight="75.0"
+                      prefWidth="600">
+                <FlowPane alignment="BOTTOM_LEFT" prefWidth="600">
+                    <Label fx:id="LOGGER"/>
+                </FlowPane>
+                <ProgressBar fx:id="progressBar" progress="0.0" prefHeight="25.0" prefWidth="600" style="-fx-accent:#5fd45f"
+                             BorderPane.alignment="CENTER"/>
+            </FlowPane>
+        </FlowPane>
+    </center>
     <bottom>
         <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="20.0" nodeOrientation="LEFT_TO_RIGHT"
                   prefHeight="35.0" prefWidth="600.0"
@@ -23,22 +41,4 @@
                     style="-fx-background-color:#f2abc7"/>
         </FlowPane>
     </bottom>
-    <center>
-        <FlowPane orientation="VERTICAL" prefWidth="600">
-            <ImageView fitHeight="265.0" fitWidth="600" pickOnBounds="true" BorderPane.alignment="CENTER" fx:id="placeholderImage">
-                <Image url="@mary_mods.jpg"/>
-            </ImageView>
-            <FlowPane orientation="VERTICAL" alignment="CENTER_LEFT" BorderPane.alignment="CENTER" prefHeight="75.0"
-                      prefWidth="600">
-                <FlowPane alignment="BOTTOM_LEFT" prefWidth="600">
-                    <Label fx:id="LOGGER"/>
-                </FlowPane>
-                <ProgressBar fx:id="progressBar" progress="0.0" prefHeight="25.0" prefWidth="600" style="-fx-accent:#5fd45f"
-                             BorderPane.alignment="CENTER"/>
-            </FlowPane>
-        </FlowPane>
-    </center>
-    <top>
-        <Toolbar />
-    </top>
 </BorderPane>

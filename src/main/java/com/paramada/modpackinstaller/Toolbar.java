@@ -26,14 +26,14 @@ public class Toolbar extends FlowPane {
         var imageView = new ImageView(String.valueOf(this.getClass().getResource("icon.png")));
 
         imageView.setPreserveRatio(true);
-        imageView.setFitWidth(25);
+        imageView.setFitWidth(30);
         this.getChildren().add(imageView);
 
         var actionsLayout = new FlowPane(Orientation.HORIZONTAL);
         actionsLayout.setAlignment(Pos.TOP_RIGHT);
 
         var closeBtn = new ToolbarButton("X");
-        var minimizeBtn = new ToolbarButton("_");
+        var minimizeBtn = new ToolbarButton("―");
 
         closeBtn.setOnAction(this::closeWindow);
         minimizeBtn.setOnAction(this::minimizeWindow);

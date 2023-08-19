@@ -7,7 +7,7 @@ public class ToolbarButton extends Button {
     public ToolbarButton(String labelText) {
         super(labelText);
 
-        this.setPrefHeight(20);
+        this.setPrefHeight(29);
         this.prefWidthProperty().bind(this.heightProperty());
 
         this.getStyleClass().add("toolbar-btn");
