@@ -20,7 +20,7 @@
             <viewport>
                 <Rectangle2D fx:id="placeholderViewPort" height="1080" minX="1193" width="512.0"/>
             </viewport>
-            <Image url="@mary_mods.jpg"/>
+            <Image url="@resources/notext.jpg"/>
         </ImageView>
     </left>
     <center>
@@ -29,7 +29,7 @@
                 <Label alignment="CENTER" prefHeight="50.0" prefWidth="631.0" text="Modpack Installer"
                        textAlignment="CENTER" BorderPane.alignment="CENTER">
                     <font>
-                        <Font name="Serif Bold" size="40.0"/>
+                        <Font name="@resources/font.ttf" size="40.0"/>
                     </font>
                 </Label>
             </top>

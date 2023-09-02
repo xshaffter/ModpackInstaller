@@ -93,10 +93,4 @@ public class MainScreenController {
         scene.getStylesheets().addAll(window.getScene().getStylesheets());
         window.setScene(scene);
     }
-
-    public void minimizeWindow(ActionEvent actionEvent) {
-        Stage window = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        window.setIconified(true);
-    }
-
 }

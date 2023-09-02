@@ -1,0 +1,12 @@
+.toolbar-btn {
+    -fx-background-radius: 0;
+    -fx-background-color: #9a33a6;
+}
+.toolbar-btn:hover {
+    -fx-background-color: #822a8c;
+}
+.title-label {
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-font-weight: bold;
+}

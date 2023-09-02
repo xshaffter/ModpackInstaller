@@ -24,11 +24,11 @@
     <center>
         <FlowPane orientation="VERTICAL">
             <ImageView fitHeight="300.0" pickOnBounds="true" BorderPane.alignment="CENTER" fx:id="placeholderImage">
-                <Image url="@mary_mods.jpg"/>
+                <Image url="@resources/mary_mods.jpg"/>
             </ImageView>
             <FlowPane alignment="CENTER" prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                 <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@checkbox.png"/>
+                    <Image url="@resources/checkbox.png"/>
                 </ImageView>
                 <Label text="Installation Finished... You can now close this window"/>
             </FlowPane>

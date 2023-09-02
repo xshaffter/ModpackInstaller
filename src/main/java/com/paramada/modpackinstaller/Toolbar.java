@@ -6,11 +6,10 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Toolbar extends FlowPane {
@@ -23,11 +22,18 @@ public class Toolbar extends FlowPane {
         this.setAlignment(Pos.TOP_LEFT);
         this.setStyle("-fx-background-color:#9a33a6");
 
-        var imageView = new ImageView(String.valueOf(this.getClass().getResource("icon.png")));
+        var imageView = new ImageView(String.valueOf(this.getClass().getResource("resources/icon.png")));
+        var title = new Label("Modpack Installer - %s".formatted(Globals.INSTALLER_VERSION));
+        title.maxHeight(30);
+        title.setPrefHeight(30);
+        title.getStyleClass().add("title-label");
 
         imageView.setPreserveRatio(true);
         imageView.setFitWidth(30);
+
+        this.setHgap(4);
         this.getChildren().add(imageView);
+        this.getChildren().add(title);
 
         var actionsLayout = new FlowPane(Orientation.HORIZONTAL);
         actionsLayout.setAlignment(Pos.TOP_RIGHT);
@@ -42,7 +48,7 @@ public class Toolbar extends FlowPane {
         actionsLayout.getChildren().add(closeBtn);
 
         Platform.runLater(() -> {
-            actionsLayout.prefWidthProperty().bind(this.getScene().widthProperty().subtract(imageView.fitWidthProperty()));
+            actionsLayout.prefWidthProperty().bind(this.getScene().widthProperty().subtract(imageView.fitWidthProperty()).subtract(8).subtract(title.widthProperty()));
         });
 
         this.getChildren().add(actionsLayout);

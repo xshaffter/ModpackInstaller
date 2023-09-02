@@ -36,4 +36,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
-src/main/resources/com/paramada/modpackinstaller/config.conf
+src/main/resources/com/paramada/modpackinstaller/resources/config.conf
